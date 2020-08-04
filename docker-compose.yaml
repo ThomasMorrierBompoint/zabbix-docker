@@ -8,7 +8,7 @@ services:
    MYSQL_PASSWORD: "directus"
    MYSQL_ROOT_PASSWORD: "directus"
   ports:
-   - "3306:3306"
+   - "3307:3306"
   networks:
    - directus
 
@@ -242,7 +242,6 @@ services:
    interval: 10s
    timeout: 5s
    retries: 3
-   start_period: 30s
   networks:
    zbx_net_backend:
     aliases:
@@ -298,7 +297,6 @@ services:
    interval: 10s
    timeout: 5s
    retries: 3
-   start_period: 30s
   networks:
    zbx_net_backend:
     aliases:
