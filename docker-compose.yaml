@@ -1,18 +1,22 @@
 version: '3.5'
 services:
  mysql:
+  container_name: directus_mysql
   image: mysql:5.7
+  ports:
+   - "3307:3306"
   environment:
    MYSQL_DATABASE: "directus"
    MYSQL_USER: "directus"
    MYSQL_PASSWORD: "directus"
    MYSQL_ROOT_PASSWORD: "directus"
-  ports:
-   - "3307:3306"
+  volumes:
+   - ./data/uploads/demo.sql:/docker-entrypoint-initdb.d/demo.sql
   networks:
    - directus
 
  directus:
+  container_name: directus_server
   image: directus/directus:v8-apache
   ports:
    - "8080:80"
