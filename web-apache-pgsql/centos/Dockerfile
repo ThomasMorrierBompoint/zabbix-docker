@@ -48,7 +48,7 @@ RUN set -eux && \
     rm -rf /var/cache/dnf /etc/udev/hwdb.bin /root/.pki 
 
 ARG MAJOR_VERSION=5.0
-ARG ZBX_VERSION=${MAJOR_VERSION}.2
+ARG ZBX_VERSION=${MAJOR_VERSION}.3
 ARG ZBX_SOURCES=https://git.zabbix.com/scm/zbx/zabbix.git
 
 ENV TERM=xterm ZBX_VERSION=${ZBX_VERSION} ZBX_SOURCES=${ZBX_SOURCES}
@@ -63,7 +63,7 @@ RUN set -eux && \
     dnf --quiet makecache && \
     dnf -y install --setopt=install_weak_deps=False --best --setopt=tsflags=nodocs \
             glibc-locale-source && \
-    dnf -y install --setopt=tsflags=nodocs \
+    dnf -y install --setopt=install_weak_deps=False --best --setopt=tsflags=nodocs \
             gettext \
             git && \
     cd /usr/share/ && \

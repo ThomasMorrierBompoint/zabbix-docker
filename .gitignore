@@ -1,5 +1,8 @@
 zbx_env/
 zbx_env*/
+.*CERT_FILE
+.*KEY_FILE
+.*CA_FILE
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,phpstorm,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,phpstorm,node
